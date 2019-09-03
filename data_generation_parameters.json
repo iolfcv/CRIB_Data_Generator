@@ -1,0 +1,57 @@
+{
+    "light_parameters": {
+        "area_strength_range": [
+            10,
+            150
+        ],
+        "point_light_locations": [
+            [2.5, 2.5, 3],
+            [-2.5, 2.5, 3],
+            [2.5, -2.5, 3],
+            [-2.5, -2.5, 3]
+        ],
+        "point_strength_range": [
+            100,
+            800
+        ],
+        "area_light_locations": [
+            [0, -2.5, 3 ],
+            [0, 0, 3],
+            [0, 2.5, 3]
+        ],
+        "area_size_x": 3,
+        "area_size_y": 0.1,
+        "light_temperature_range": [
+            4000,
+            6000
+        ]
+    },
+    "render_parameters": {
+        "use_persistent_data": true,
+        "transparent_min_bounces": 2,
+        "color_mode": "RGBA",
+        "max_bounces": 2,
+        "render_samples": 5,
+        "use_spatial_splits": true,
+        "render_tile_y": 100,
+        "transparent_max_bounces": 2,
+        "rendering_device": "GPU",
+        "use_caustics_refractive": false,
+        "resolution_percentage": 100,
+        "denoising_radius": 5,
+        "glossy_bounces": 2,
+        "min_bounces": 2,
+        "transmission_bounces": 2,
+        "use_film_transparent": true,
+        "use_denoising": true,
+        "render_tile_x": 100,
+        "use_caustics_reflective": false,
+        "resolution": 200
+    },
+    "learning_exp_properties":{
+        "total_points":3,
+        "total_frames":30
+    },
+    "blender_path":"/home/sstojanov3/blender-2.79-linux-glibc219-x86_64/blender",
+    "background":"blank"
+}
