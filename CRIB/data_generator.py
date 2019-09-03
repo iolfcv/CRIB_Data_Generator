@@ -57,6 +57,8 @@ class data_generator(object):
            
             wrapper_pose_list_data(self.model_name)
 
+            self.bbox_and_overlay("pose_list_data")
+    
     def bbox_and_overlay(self, data_subset):
         """
         param: string data_subset can be "training data" or "testing data"
@@ -65,8 +67,16 @@ class data_generator(object):
         or blank background. The clutter vs. blank background can be specified in 
         "data_generation_parameters.json"
         """
+        
+        if data_subset == "pose_list_data":
+            with open('pose_list.json') as load_file:
+                pose_list = json.load(load_file)['pose_list']
+            
+            total_frames = len(pose_list)
 
-        total_frames = self.data_gen_params['learning_exp_properties']['total_frames']
+        else:
+            total_frames = self.data_gen_params['learning_exp_properties']['total_frames']
+
         resolution = self.data_gen_params['render_parameters']['resolution']
         background = self.data_gen_params['background']
 
@@ -80,15 +90,17 @@ class data_generator(object):
             bbox = get_bbox(img)
 
             if data_subset == "testing_data":
-                    random_idx = np.random.randint(0,200)
-                    bck_filepath = os.path.join('backgrounds', 
-                                                'background{}'.format(bck_idx), 
-                                                '{:04d}.png'.format(random_idx))
+                random_idx = np.random.randint(0,200)
+                bck_filepath = os.path.join('backgrounds', 
+                                            'background{}'.format(bck_idx), 
+                                            '{:04d}.png'.format(random_idx))
             
             elif data_subset == "training_data":
-                    bck_filepath = os.path.join('backgrounds',
+                bck_filepath = os.path.join('backgrounds',
                                                 'background{}'.format(bck_idx), 
                                                 '{:04d}.png'.format(frame))
+            elif data_subset == "pose_list_data":
+                bck_filepath = None
 
             else:
                 raise Exception("data_subset can be either " + \
@@ -127,6 +139,11 @@ class data_generator(object):
             np.save(os.path.join("test_data" , 
                                  str(self.model_name), 
                                  "bboxes.npy"), np.asarray(bboxes))
+        
+        elif data_subset == "pose_list_data":
+            np.save(os.path.join("pose_list_data" , 
+                                 str(self.model_name), 
+                                 "bboxes.npy"), np.asarray(bboxes))
 
     def read_img(self, frame, data_subset):
     
@@ -134,7 +151,11 @@ class data_generator(object):
             im_filepath = os.path.join('test_data', 
                                            self.model_name, 
                                            '{:04d}.png'.format(frame))
-        
+        if data_subset == "pose_list_data":
+            im_filepath = os.path.join('pose_list_data', 
+                                           self.model_name, 
+                                           '{:04d}.png'.format(frame))
+       
         elif data_subset == "training_data":
              im_filepath = os.path.join('train_data', 
                                            self.model_name, 

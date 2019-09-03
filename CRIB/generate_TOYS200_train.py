@@ -247,7 +247,7 @@ def generate():
         'lamp_rotations' : [list(x) for x in lamp_rotations]
         }
 
-    out_path = os.path.abspath('./test_data/{}/{}/metadata.json'.format(obj.name, str(n_exposures)))
+    out_path = os.path.abspath('./train_data/{}/{}/metadata.json'.format(obj.name, str(n_exposures)))
     out_str = json.dumps(metadata_to_save)
 
     with open(out_path, 'w') as out_file:
