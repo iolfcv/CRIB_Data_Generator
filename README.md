@@ -7,7 +7,7 @@ Training Data - Learning Exposure
 <p align="center">
 Testing Data - Random Views
 
-<img src="https://i.imgur.com/DHwE9Ky.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/w2DhaHi.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/w2DhaHi.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/w2DhaHi.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/w2DhaHi.gif" width="150" hspace="10"/> 
+<img src="https://i.imgur.com/DHwE9Ky.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/kdeZprM.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/xj8qEGi.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/t3Dl2mc.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/7lmZCeF.gif" width="150" hspace="10"/> 
 </p>
 
 
