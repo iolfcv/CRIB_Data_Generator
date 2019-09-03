@@ -1,4 +1,4 @@
-# CRIB data generator
+# CRIB Data Generator
 <p align="center">
 Training Data - Learning Exposure
 
