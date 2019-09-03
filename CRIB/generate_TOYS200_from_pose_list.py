@@ -5,20 +5,24 @@ import os
 import pdb
 import json
 
+# ENABLE GPU'S FROM BLENDER PREFERENCES
 bpy.context.user_preferences.addons['cycles'].preferences['compute_device_type'] = 1
 
+# blender doesn't see local paths, so we need to add the directory where the lamps module is 
 sys.path.append('CRIB')
 import lamps
 
 def plus_minus(val, percent = 100):
+    '''
+        randomly scale a vlalue up or down by <percent>
+    '''
     percent = percent / 100.0
-    val = np.random.uniform(val*(1-percent), val*(1+percent))
-    # coin = np.random.choice([True, False])
+    coin = np.random.choice([True, False])
     
-    # if coin:
-    #   val+= val*percent
-    # else:
-    #   val -= val*percent
+    if coin:
+        val = val + val*percent
+    else:
+        val = val - val*percent
     
     return val
 

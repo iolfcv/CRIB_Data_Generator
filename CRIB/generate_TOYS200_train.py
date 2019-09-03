@@ -7,9 +7,6 @@ import argparse
 import copy
 import json
 
-from bpy_extras.object_utils import world_to_camera_view
-from mathutils import Vector
-
 # ENABLE GPU'S FROM BLENDER PREFERENCES
 bpy.context.user_preferences.addons['cycles'].preferences['compute_device_type'] = 1
 
@@ -250,7 +247,7 @@ def generate():
         'lamp_rotations' : [list(x) for x in lamp_rotations]
         }
 
-    out_path = os.path.abspath('./render_data/{}/{}/metadata.json'.format(obj.name, str(n_exposures)))
+    out_path = os.path.abspath('./test_data/{}/{}/metadata.json'.format(obj.name, str(n_exposures)))
     out_str = json.dumps(metadata_to_save)
 
     with open(out_path, 'w') as out_file:

@@ -6,8 +6,8 @@ import argparse
 # 0-50, another for 50-100 etc.
 
 parser = argparse.ArgumentParser(description='Range of Objects')
-parser.add_argument('-s', type=int, help='start point', default=0)
-parser.add_argument('-e', type=int, help='end point', default=200)
+parser.add_argument('-start', type=int, help='start point', default=0)
+parser.add_argument('-end', type=int, help='end point', default=200)
 parser.add_argument('-n', type=int, help='Number of learning exposure', default=1)
 args = parser.parse_args()
 
@@ -45,8 +45,8 @@ classes = ['bag', 'baseball', 'binoculars', 'cactus', 'crystal', 'dozer',
 
 data_generators = [data_generator(model_name = classes[i]) for i in range(len(classes))]
 
-for i in range(args.s, args.e):
-    print("Generating data for {}, object [{}/{}]".format(classes[i], i+1, args.e-args.s))
+for i in range(args.start, args.end):
+    print("Generating data for {}, object [{}/{}]".format(classes[i], i+1, args.end-args.start))
     
     for j in range(args.n):
         data_generators[i].get_training_data()

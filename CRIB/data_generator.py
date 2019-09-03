@@ -118,7 +118,7 @@ class data_generator(object):
             cv2.imwrite(im_filepath, img)
         
         if data_subset == "training_data": 
-            np.save(os.path.join('render_data', 
+            np.save(os.path.join('train_data', 
                                  str(self.model_name), 
                                  str(self.n_exposures), 
                                  'bboxes.npy'), np.asarray(bboxes))
@@ -136,7 +136,7 @@ class data_generator(object):
                                            '{:04d}.png'.format(frame))
         
         elif data_subset == "training_data":
-             im_filepath = os.path.join('render_data', 
+             im_filepath = os.path.join('train_data', 
                                            self.model_name, 
                                            str(self.n_exposures), 
                                            '{:04d}.png'.format(frame))
@@ -153,10 +153,10 @@ class data_generator(object):
         return img, im_filepath
 
     def choose_background(self):
-        "
+        '''
             this function chooses a background index that does not
             contain the foreground object
-        "
+        '''
         name = self.model_name
         bools = []
         for ls in self.models_list:

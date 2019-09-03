@@ -5,25 +5,24 @@ import os
 import pdb
 import json
 
+# ENABLE GPU'S FROM BLENDER PREFERENCES
 bpy.context.user_preferences.addons['cycles'].preferences['compute_device_type'] = 1
 
-# fpath = bpy.data.filepath
-# dir_path = '/'.join(fpath.split('/')[:-2])
-# obj_name = fpath.split('/')[-1].split('.')[0]
-
-# sys.path.append(dir_path + '/data_generator')
+# blender doesn't see local paths, so we need to add the directory where the lamps module is 
 sys.path.append('CRIB')
 import lamps
 
 def plus_minus(val, percent = 100):
+    '''
+        randomly scale a vlalue up or down by <percent>
+    '''
     percent = percent / 100.0
-    val = np.random.uniform(val*(1-percent), val*(1+percent))
-    # coin = np.random.choice([True, False])
+    coin = np.random.choice([True, False])
     
-    # if coin:
-    #   val+= val*percent
-    # else:
-    #   val -= val*percent
+    if coin:
+        val = val + val*percent
+    else:
+        val = val - val*percent
     
     return val
 
@@ -107,10 +106,18 @@ def generate():
 
     # add both point and area sources
     for location in point_locations:
-            lamps.make_point_lamp(location,strength = strength, temp = temp, jitter_location = False)
+            lamps.make_point_lamp(location,
+                                  strength = strength, 
+                                  temp = temp, 
+                                  jitter_location = False)
+    
     for location in area_locations:
-            lamps.make_area_lamp(location, size_x = 3, size_y = 0.1, strength =  strength, temp = temp, jitter_rotation = True)
-
+            lamps.make_area_lamp(location, 
+                                 size_x = light_parameters['area_size_x'], 
+                                 size_y = light_parameters['area_size_y'], 
+                                 strength =  strength, 
+                                 temp = temp, 
+                                 jitter_rotation = True)
 
     area_lamps = []
     point_lamps = []
@@ -142,7 +149,6 @@ def generate():
                     obj.location = all_lamp_locations[obj.name]
 
             point_or_area = np.random.choice([True, False])
-            # point_or_area = True
 
             if point_or_area == True:
                     temp = np.random.randint(light_parameters['light_temperature_range'][0],
@@ -151,11 +157,12 @@ def generate():
                     strength = np.random.randint(light_parameters['point_strength_range'][0],
                                                  light_parameters['point_strength_range'][1])
 
-                    # strength = 600
-
                     for obj in point_lamps:
                             obj.hide_render = False
-                            obj.location = (plus_minus(obj.location[0],20),plus_minus(obj.location[1],20),obj.location[2])
+                            obj.location = (plus_minus(obj.location[0],20),
+                                            plus_minus(obj.location[1],20),
+                                            obj.location[2])
+
                             node_emission = obj.data.node_tree.nodes[1]
                             node_blackbody = obj.data.node_tree.nodes[0]
 
@@ -171,7 +178,10 @@ def generate():
 
                     for obj in area_lamps:
                             obj.hide_render = False
-                            obj.location = (plus_minus(obj.location[0],30),plus_minus(obj.location[1],30),obj.location[2])
+                            obj.location = (plus_minus(obj.location[0],30),
+                                            plus_minus(obj.location[1],30),
+                                            obj.location[2])
+
                             node_emission = obj.data.node_tree.nodes[1]
                             node_blackbody = obj.data.node_tree.nodes[0]
 
