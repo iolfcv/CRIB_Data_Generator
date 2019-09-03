@@ -18,7 +18,7 @@ Follow [setup instructions](https://github.com/iolfcv/CRIB_Data_Generator/blob/m
 
 ## Quick Demo Commands
 ``` 
-python generate_data_pose.py -start=0 -end=1 
+python generate_data.py -start=0 -end=1 
 ```
 Generates one small learning exposure in `train_data` and testing samples in `test_data` of one object on a blank background.
 ``` 
