@@ -18,3 +18,7 @@ Depending on your OS, add the appropriate path in the `data_generation_parameter
 ## Step 3. Download `backgrounds.zip`
 1. This is required only if you would like to render data on top of a cluttered background rather than on a blank image (setting can be specified in `data_generation_parameters.json`).
 2. Extract `backgrounds.zip` at `CRIB_data_generator/backgrounds`
+
+## Step 4. Install Requirements
+1. Make sure you are using Python 3.5+ (using [Miniconda](https://docs.conda.io/en/latest/miniconda.html) is recommended).
+2. `pip install numpy opencv-python`
