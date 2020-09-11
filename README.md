@@ -2,12 +2,12 @@
 <p align="center">
 Training Data - Learning Exposure
 
-<img src="https://i.imgur.com/w2DhaHi.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/YUgapi0.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/4LCT3EX.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/ZHO82dX.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/1CSifc0.gif" width="150" hspace="10"/> 
+<img src="https://i.imgur.com/w2DhaHi.gif" width="125" hspace="10"/> <img src="https://i.imgur.com/YUgapi0.gif" width="125" hspace="10"/> <img src="https://i.imgur.com/4LCT3EX.gif" width="125" hspace="10"/> <img src="https://i.imgur.com/ZHO82dX.gif" width="125" hspace="10"/> <img src="https://i.imgur.com/1CSifc0.gif" width="125" hspace="10"/> 
 </p>
 <p align="center">
 Testing Data - Random Views
 
-<img src="https://i.imgur.com/DHwE9Ky.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/kdeZprM.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/xj8qEGi.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/jncaBfj.gif" width="150" hspace="10"/> <img src="https://i.imgur.com/7lmZCeF.gif" width="150" hspace="10"/> 
+<img src="https://i.imgur.com/DHwE9Ky.gif" width="125" hspace="10"/> <img src="https://i.imgur.com/kdeZprM.gif" width="125" hspace="10"/> <img src="https://i.imgur.com/xj8qEGi.gif" width="125" hspace="10"/> <img src="https://i.imgur.com/jncaBfj.gif" width="125" hspace="10"/> <img src="https://i.imgur.com/7lmZCeF.gif" width="125" hspace="10"/> 
 </p>
 
 
