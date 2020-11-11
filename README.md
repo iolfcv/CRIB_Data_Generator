@@ -27,7 +27,7 @@ python generate_data_pose_list.py -start=0 -end=1
 Make sure to execute these commands in the main repository directory, not `./CRIB`.
 Generates 10 frames of one object rotating in the tilt direction (euler coordinates), specified in `pose_list.json`.
 ## Generating Data as in the Paper
-1. In `data_generation_parameters.json` specify `"total_frames":100` and `"background":"blank"`.
+1. In `data_generation_parameters.json` specify `"total_frames":100` and `"background":"blank"` or `"background":"clutter"` depending on background preference.
 2. ```python generate_data.py ```
 
 ## Generating Data From Specified Pose
