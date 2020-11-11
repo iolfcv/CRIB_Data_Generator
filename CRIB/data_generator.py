@@ -88,6 +88,7 @@ class data_generator(object):
             # reading rendedered image and finding bbox
             img, im_filepath = self.read_img(frame, data_subset)
             bbox = get_bbox(img)
+            bboxes[frame] = bbox
 
             if data_subset == "testing_data":
                 random_idx = np.random.randint(0,200)
